@@ -204,6 +204,7 @@ var data = [
 var sum = 0;
 var first;
 var second;
+var third;
 
 for (let indexA = 0; indexA < data.length; indexA++) {
     first = data[indexA];
@@ -211,10 +212,21 @@ for (let indexA = 0; indexA < data.length; indexA++) {
     for (let indexB = 0; indexB < data.length; indexB++) {
         second = data[indexB];
 
-        sum = first + second;
-        if (sum === 2020) {
-            console.log(`indexA: ${indexA} - indexB: ${indexB} - sum: ${sum}`);
-            console.log(`final: ${first * second}`);
+        for (let indexC = 0; indexC < data.length; indexC++) {
+            third = data[indexC];
+
+            sum = first + second + third;
+            if (sum === 2020) {
+                console.log(`indexA: ${indexA} - indexB: ${indexB} - indexC: ${indexC} - sum: ${sum}`);
+                console.log(`final: ${first * second * third}`);
+            }
         }
     }
 }
+
+// function indexNumbers(num) {
+//     for (let index = 0; index < array.length; index++) {
+//         const element = array[index];
+
+//     }
+// }
