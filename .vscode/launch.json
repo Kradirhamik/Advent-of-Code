@@ -4,7 +4,7 @@
             "type": "node-terminal",
             "name": "Run Script: test",
             "request": "launch",
-            "command": "node 3-1.js",
+            "command": "node 4-1.js",
             "cwd": "${workspaceFolder}"
         }
     ]
