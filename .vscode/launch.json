@@ -1,0 +1,11 @@
+{
+    "configurations": [
+        {
+            "type": "node-terminal",
+            "name": "Run Script: test",
+            "request": "launch",
+            "command": "node 3-1.js",
+            "cwd": "${workspaceFolder}"
+        }
+    ]
+}
