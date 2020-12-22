@@ -19,11 +19,6 @@ const passportDataTypes = [
 ];
 
 fs.readFile('4-data.txt', "utf-8", function (err, data) {
-    // console.log(data);
-    // console.log("===========");
-
-    // passports = JSON.parse(data);
-
     passports = data
         .toString()
         .split(`\r\n`);
@@ -48,7 +43,6 @@ fs.readFile('4-data.txt', "utf-8", function (err, data) {
         passportDataTypes.forEach(passportDataType => {
             const matcher = passportDataType + ":";
 
-            // if (!finalPassportString.includes(matcher) && passportDataType != "cid") {
             if (!finalPassportString.includes(matcher)) {
                 isCurrentPassportValid = false;
                 reason = passportDataType;
@@ -62,7 +56,7 @@ fs.readFile('4-data.txt', "utf-8", function (err, data) {
         }
         reason ?
             console.log(`finalPassport ${index}: (${finalPassportString}) - valid: ${isCurrentPassportValid} (reason: ${reason})`) :
-            console.log(`finalPassport ${index}: (${finalPassportString}) - valid: ${isCurrentPassportValid}`);
+            console.log(`finalPassport ${index}: (${finalPassportString}) - valid: ${isCurrentPassportValid} (reason: ${reason})`);
     }
 
     // console.log(`finalPassports[0]: ${finalPassports[0]}`)
