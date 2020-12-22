@@ -56,7 +56,7 @@ fs.readFile('4-data.txt', "utf-8", function (err, data) {
         }
         reason ?
             console.log(`finalPassport ${index}: (${finalPassportString}) - valid: ${isCurrentPassportValid} (reason: ${reason})`) :
-            console.log(`finalPassport ${index}: (${finalPassportString}) - valid: ${isCurrentPassportValid} (reason: ${reason})`);
+            console.log(`finalPassport ${index}: (${finalPassportString}) - valid: ${isCurrentPassportValid}`);
     }
 
     // console.log(`finalPassports[0]: ${finalPassports[0]}`)
