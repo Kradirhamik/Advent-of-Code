@@ -1,4 +1,4 @@
-// 125 < here < 219
+// 125 < here < 128 < here < 219
 
 var fs = require('fs');
 var passports;
@@ -17,7 +17,7 @@ const passportDataTypes = [
     // "cid",
 ];
 const dataRules = {
-    byr: /:(19[23456789]\d|200[2])/g,
+    byr: /:(19[23456789]\d|200[012])/g,
     iyr: /:(20[1]\d|20[2]0)/g,
     eyr: /:(20[2]\d|20[3]0)/g,
     hgt: /:(59|6\d|7[0123456])in|:(1[5678]\d|19[0123])cm/g,
@@ -54,7 +54,7 @@ fs.readFile('4-data.txt', "utf-8", function (err, data) {
 
             if (!finalPassportString.includes(matcher + ":")) {
                 isCurrentPassportValid = false;
-                reason = passportDataType;
+                reason = `${passportDataType} does not exist`;
             }
             // console.log(`finalPassportString index ${index} (${finalPassportString}) has passportDataType ${passportDataType}: ${finalPassportString.includes(matcher)}`)
             else {
@@ -112,6 +112,7 @@ fs.readFile('4-data.txt', "utf-8", function (err, data) {
                 }
                 if (dataEntry.match(dataRules[passportDataType]) == null) {
                     isCurrentPassportValid = false;
+                    reason = `${passportDataType}${dataEntry} does not match rules "${dataRules[passportDataType]}"`;
                 }
                 // console.log(`null: ${passportId.match(dataRules[passportDataType])}`)
                 // console.log(`valid: ${passportId.match(dataRules[passportDataType]) != null}`)
@@ -122,7 +123,7 @@ fs.readFile('4-data.txt', "utf-8", function (err, data) {
         if (isCurrentPassportValid) {
             totalValidPassports++;
         }
-        reason ?
+        isCurrentPassportValid == false ?
             console.log(`finalPassport ${index}: (${finalPassportString}) - valid: ${isCurrentPassportValid} (reason: ${reason})`) :
             console.log(`finalPassport ${index}: (${finalPassportString}) - valid: ${isCurrentPassportValid}`);
         console.log(`===========================================`)
